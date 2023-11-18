@@ -51,4 +51,41 @@ app.post("/", async (req,res) => {
     }
 })
 
+//edit or update
+
+app.route("/edit/:id").get(async (req, res) => {
+    try {
+        const id = req.params.id;
+        const lists = await Appointment.find({}).exec();
+        res.render('edit.ejs', { listOfAppointment: lists, idLists: id });
+    } catch (err) {
+        res.status(500).send(err);
+    }
+}).post(async (req, res) => {
+    try {
+        const id = req.params.id;
+        await Appointment.findByIdAndUpdate(id, {
+            name: req.body.name,
+            date: req.body.date,
+            time: req.body.time,
+            phone: req.body.phone,
+            email: req.body.email,
+        }).exec();
+        res.redirect("/");
+    } catch (err) {
+        res.status(500).send(err);
+    }
+});
+
+app.route("/remove/:id").get(async (req, res) => {
+    const id = req.params.id;
+
+    try {
+        const result = await Appointment.findByIdAndDelete(id);
+        res.redirect('/');
+    } catch (err) {
+        res.status(500).send(err);
+    }
+});
+
 app.listen(PORT, () => console.log(`port ${PORT} successfull`))

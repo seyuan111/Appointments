@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Appointment List</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato&family=Oswald&family=Poppins:wght@200&family=Rampart+One&family=Roboto+Slab:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css" integrity="sha384-QYIZto+st3yW+o8+5OHfT6S482Zsvz2WfOzpFSXMF9zqeLcFV0/wlZpMtyFcZALm" crossorigin="anonymous">
     <link rel="stylesheet" href="/style.css">
 </head>
@@ -12,12 +15,17 @@
         <h1>List of Appointments</h1>
         <div class="appointments">
             <form action="/" method="POST" class="appointment-header">
-                <input type="text" name="name" value="name">
-                <input type="text" name="date" value="date">
-                <input type="text" name="time" value="time">
-                <input type="text" name="phone" value="phone">
-                <input type="text" name="email" value="email">
-                <button type="submit"><span class="fa-regular fa-plus">Add Appointment</span></button>
+                <label>Name:</label>
+                <input type="text" name="name" placeholder="name">
+                <label>Phone:</label>
+                <input type="text" name="phone" placeholder="phone">
+                <Label>Email:</Label>
+                <input type="text" name="email" placeholder="email">
+                <label>Date:</label>
+                <input type="text" name="date" placeholder="date">
+                <label>Time:</label>
+                <input type="text" name="time" placeholder="time">
+                <button type="submit" class="addAppointment"><span class="fa-regular fa-plus">Add Appointment</span></button>
             </form>
             <ul class="appointment-results">
                 <% listOfAppointment.forEach(result => {%>
@@ -25,20 +33,20 @@
                         <div class="name-of-appointment">
                             <%= result.name %>
                         </div>
-                        <div class="date-of-appointment">
-                            <%= result.date %>
-                        </div>
-                        <div class="time-of-appointment">
-                            <%= result.time %>
-                        </div>
                         <div class="phone-number">
                             <%= result.phone %>
                         </div>
                         <div class="email">
                             <%= result.email %>
                         </div>
-                        <a href="/edit/<%=result._id %>" class="edit"><span class="fa-solid fa-pen-to-square"></span></a>
-                        <a href="/remove/<%=result._id %>" class="remove"><span class="fa-solid fa-trash"></span></a>
+                        <div class="date-of-appointment">
+                            <%= result.date %>
+                        </div>
+                        <div class="time-of-appointment">
+                            <%= result.time %>
+                        </div>
+                        <a href="/edit/<%=result._id %>" class="edit">edit</a>
+                        <a href="/remove/<%=result._id %>" class="remove">delete</a>
                     </li>
                 <% }) %>
             </ul>

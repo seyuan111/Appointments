@@ -3,9 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Appointment List</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato&family=Oswald&family=Poppins:wght@200&family=Rampart+One&family=Roboto+Slab:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css" integrity="sha384-QYIZto+st3yW+o8+5OHfT6S482Zsvz2WfOzpFSXMF9zqeLcFV0/wlZpMtyFcZALm" crossorigin="anonymous">
+    <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-    
+    <div class="appointment-lists">
+        <h1>Edit Appointments</h1>
+        <div class="appointments">
+            <ul class="appointment-results">
+                <% listOfAppointment.forEach(result => {%>
+                    <% if (result._id==idLists) { %>
+                        <li class="appointment-items">
+                            <form action="/edit/<%=result._id%>" method="POST" class="edit-appointment">
+                                <input type="text" name="name" value="<%=result.name%>">
+                                <input type="text" name="phone" value="<%=result.phone%>">
+                                <input type="text" name="email" value="<%=result.email%>">
+                                <input type="text" name="date" value="<%=result.date%>">
+                                <input type="text" name="time" value="<%=result.time%>">
+                                <button type="submit" class="confirm">confirm</button>
+                                <a href="/" class="cancel">Cancel</a>
+                            </form>
+                        </li>
+                    <%} else{ %>
+                                <li class="appointment-items">
+                                    <div class="name-of-appointment">
+                                        <%= result.name %>
+                                    </div>
+                                    <div class="date-of-appointment">
+                                        <%= result.date %>
+                                    </div>
+                                    <div class="time-of-appointment">
+                                        <%= result.time %>
+                                    </div>
+                                    <div class="phone-number">
+                                        <%= result.phone %>
+                                    </div>
+                                    <div class="email">
+                                        <%= result.email %>
+                                    </div>
+                                    <a href="/edit/<%=result._id %>" class="edit">edit</a>
+                                    <a href="/remove/<%=result._id %>" class="remove">delete</a>
+                                </li>
+                            <% } %>
+                            <% }) %>
+                        </ul>
+        </div>
+    </div>
 </body>
 </html>

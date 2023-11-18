@@ -1,0 +1,165 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background: rgb(66, 132, 130);
+}
+
+.appointment-lists {
+    color: white;
+    font-family: 'Lato', sans-serif;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    width: 80%;
+    padding: 20px;
+    transform: translateX(-50%);
+    background: rgba(233, 171, 171, 0.4);
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.appointments{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1{
+    margin-bottom: 20px;
+    text-decoration: underline;
+}
+
+.appointment-header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.edit-appointment{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.addAppointment{
+    margin-top: 15px;
+    padding: 5px 15px;
+    border: none;
+    background: rgb(37, 172, 37);
+    color: white;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.confirm{
+    margin-top: 15px;
+    padding: 5px 15px;
+    border: none;
+    background: rgb(37, 172, 37);
+    color: white;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.confirm:hover{
+    margin-top: 15px;
+    padding: 5px 15px;
+    border: none;
+    background: rgb(34, 80, 34);
+    color: white;
+    border-radius: 15px;
+    cursor: pointer;
+    transition-duration: 0.5s;
+}
+
+.cancel{
+    text-decoration: none;
+    list-style: none;
+    margin-top: 15px;
+    padding: 5px 15px;
+    border: none;
+    background: rgb(172, 51, 37);
+    color: white;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.cancel:hover{
+    text-decoration: none;
+    list-style: none;
+    margin-top: 15px;
+    padding: 5px 15px;
+    border: none;
+    background: rgb(103, 31, 23);
+    color: white;
+    border-radius: 15px;
+    cursor: pointer;
+    transition-duration: 0.5s;
+}
+
+.addAppointment:hover{
+    margin-top: 15px;
+    padding: 5px 15px;
+    border: none;
+    background: rgb(34, 80, 34);
+    color: white;
+    border-radius: 15px;
+    cursor: pointer;
+    transition-duration: 0.5s;
+}
+
+input{
+    margin: 10px 0;
+    padding: 5px 15px;
+    border-radius: 15px;
+    border: none;
+}
+
+ul{
+    list-style: none;
+    text-decoration: none;
+}
+
+
+.appointment-items {
+    padding: 20px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 10px;
+    background: rgba(1,1,1,0.4);
+    display: flex;
+    flex-direction: row;
+}
+
+.appointment-results{
+    margin-top: 20px;
+}
+
+.edit{
+    text-decoration: none;
+    color: white;
+    background: rgb(0, 91, 181);
+    padding: 5px 15px;
+    border-radius: 10px;
+    margin-right: 10px;
+    margin-left: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+.remove{
+    text-decoration: none;
+    color: white;
+    background: rgb(181, 0, 0);
+    padding: 5px 15px;
+    border-radius: 10px;
+    align-items: center;
+    justify-content: center;
+}
